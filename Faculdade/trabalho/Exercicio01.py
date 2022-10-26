@@ -6,14 +6,14 @@ quantidadeProduto = float (input ('Entre com a quantidade de produto: ')) # Lend
 
 frete = float (0) #declarando variável frete e inicializnado com 0
 
-if (quantidadeProduto<= 0 and quantidadeProduto < 11): 
+if (quantidadeProduto <= 0 and quantidadeProduto < 11): 
     frete = 30 # se quantidade estiver entre 0 e 10 frete recebe 30
 elif (quantidadeProduto <= 11 and quantidadeProduto < 101):
     frete = 60 # se quantidade estiver entre 11 e 100 frete recebe 60
 elif (quantidadeProduto <= 101 and quantidadeProduto < 1001):
     frete = 120 # se quantidade estiver entre 101 e 1000 frete recebe 120
-elif (quantidadeProduto >= 1001):
+else:
     frete = 240 # se quantidade for maior que 1000 frete recebe 240
 
-print ('valor sem frete foi: R$ {} '. format(valorProduto * quantidadeProduto)) # mostra valor sem o frete
-print ('Valor com frete foi: R$ {} '. format(valorProduto * quantidadeProduto + frete)) # mostra valor com o frete
+print ('valor sem frete foi: R$ {:.2f} '. format(valorProduto * quantidadeProduto)) # mostra valor sem o frete
+print ('Valor com frete foi: R$ {:.2f} '. format(valorProduto * quantidadeProduto + frete)) # mostra valor com o frete
