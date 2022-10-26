@@ -1,7 +1,5 @@
 # Exercício 02
 
-from contextlib import nullcontext
-
 
 print('Bem-vindo(a) a Sorveteria do João Paulo Pries')
 print('-------------------------------------------- Cardápio -------------------------------------------')
