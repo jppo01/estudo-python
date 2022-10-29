@@ -22,12 +22,69 @@ def cadastrar_funcionario(id):
 
 # Função de Consulta de Funcionário
 def consultar_funcionario():
-    print('Consultar Funcionario') #  Função a implementar
+    while True:
+        print("Escolha a opção desejada:\n",
+            "1-Consultar Todas as Funcionários\n",
+            "2-Consultar Funcionário por Id\n",
+            "3-Consultar Funcionário(s) por Setor\n",
+            "4-Retornar")
+        # Tratando excessão
+        try:
+            opcao = int(input('>>'))
+            # Testando as opções
+            if (opcao == 1): # consultar todos os funcionários
+                print('opcao 1')
+                for funcionario in funcionarios:
+                    for key, value in funcionario.items():
+                        print ( '{}: {}'. format(key, value))
+                    print('-' * 30) # separar com linha de um funcionáiro para outro
+
+            elif (opcao == 2): # Consultar Funcionário por Id
+                try:     
+                    id_informado = int(input('Informe o ID a ser consultado: '))
+                    for funcionario in funcionarios:
+                        if(funcionario['id'] == id_informado):
+                            for key, value in funcionario.items():
+                                print ( '{}: {}'. format(key, value)) 
+                            print('-' * 30)
+                except:
+                    print ('O ID de cada funcionário é um número')
+
+            elif (opcao == 3): # Consultar funcionário por setor
+                setor_informado = input('Informe o setor desejado: ')
+                for funcionario in funcionarios:
+                    if(funcionario['setor'] == setor_informado):
+                        for key, value in funcionario.items():
+                            print('{}: {}'. format(key, value))
+                        print ('' * 30)
+
+            elif (opcao == 4 ): # Sair do Menu Consultar
+                break
+            else:
+                print ('!!! Opção inválida !!! Escolha um número válido!')
+
+        except ValueError:
+            print ('Digite o NÚMERO correspondente a opção desejada!')
+            continue
+
+        
+
 
 # Função para remover funcionário
 def remover_funcionario():
-    print('Remover Funcionário') # Função a implementar
-
+    while True:
+        try:
+            id_informado = int(input('Entre com o ID do funcionário a ser removido: '))
+            for funcionario in funcionarios:
+                if(funcionario['id'] == id_informado):
+                    funcionarios.remove(funcionario)
+                    print('Funcionario {} removido com sucesso!'. format(funcionario['id']))
+            break
+        except:
+            print("!!! Falha !!!",
+                  "Informe o ID (valor numerico) do funcionário a ser removido!"
+                  )
+            continue
 ################## PROGRAMA PRINCIPAL ####################
 print('Bem-vindo ao Controle de Funcionários do João Paulo Pires')
 linha_asterisco()
@@ -39,15 +96,15 @@ funcionarios = []
 while True:
     opcao = 0
     print ('-' * 30, ' MENU PRINCIPAL ', '-' * 30)
-    print ('Escolha a opção desejada: ')
-    print('1-Cadastrar Funcionário')
-    print('2-Consultar Funcionário(s)')
-    print('3-Remover Funcionário')
-    print('4-Sair')
+    print ("Escolha a opção desejada:\n",
+           "1-Cadastrar Funcionário\n",
+           "2-Consultar Funcionário(s)\n",
+           "3-Remover Funcionário\n",
+           "4-Sair")
 
-    ## TRATANDO OPÇÕES ##
+    ## TRATANDO EXCESSÕES ##
     try:
-        opcao = int(input(''))
+        opcao = int(input('>> '))
     except ValueError:
         print('Entre com o NÚMERO de acordo com a opção desejada!')
         continue
@@ -58,8 +115,8 @@ while True:
         linha_asterisco()
         print('-' * 20, ' MENU CADASTRAR FUNCIONARIO ', '-' * 20)
         funcionarios.append(cadastrar_funcionario(id).copy())
-        print(funcionarios)
-        id = id + 1
+        print('Funcionário {} cadastrado!'. format(id))
+        id += 1
         continue
 
     # Consultar Funcionário:
