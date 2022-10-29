@@ -8,7 +8,7 @@ def linha_asterisco(quantidade_asteriscos = 70):
 
 # Função de cadastrar Funcionário, recebe o ID do funcionário como parametro
 def cadastrar_funcionario(id):
-    print('Código do Funcionário {}'. format(id)) # a implementar essa função
+    print('Código do Funcionário {}'. format(id))
     nome_funcionario = input('Por favor, entre com o NOME: ')
     setor_funcionario = input('Por favor, entre com o SETOR: ')
     salario_funcionario = input('Por favor, entre com o SALÁRIO: ')
@@ -28,7 +28,7 @@ def consultar_funcionario():
             "2-Consultar Funcionário por Id\n",
             "3-Consultar Funcionário(s) por Setor\n",
             "4-Retornar")
-        # Tratando excessão
+        # Tratando exceção
         try:
             opcao = int(input('>>'))
             # Testando as opções
@@ -102,7 +102,7 @@ while True:
            "3-Remover Funcionário\n",
            "4-Sair")
 
-    ## TRATANDO EXCESSÕES ##
+    ## TRATANDO EXCEÇÕES ##
     try:
         opcao = int(input('>> '))
     except ValueError:
