@@ -23,7 +23,7 @@ def reset():
     soma = float(arquivo.read())
     arquivo.close()
 
-    txt_adicionado["text"] = "Novo pedido vazio"
+    txt_adicionado["text"] = ("Novo pedido vazio")
     txt_subtotal["text"] = ("Subtotal: R$ {:.2f}". format(soma))
 
     #criando arquivo de texto para armazenar as somas do pedido

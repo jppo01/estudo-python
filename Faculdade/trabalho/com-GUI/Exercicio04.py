@@ -11,12 +11,7 @@ def cadastrar_funcionario(id):
     print('Código do Funcionário {}'. format(id))
     nome_funcionario = input('Por favor, entre com o NOME: ')
     setor_funcionario = input('Por favor, entre com o SETOR: ')
-    while True:
-        try:
-            salario_funcionario = input('Por favor, entre com o SALÁRIO: ')
-            break
-        except ValueError:
-            print("Salário é um valor numérico!")
+    salario_funcionario = input('Por favor, entre com o SALÁRIO: ')
     funcionario = {
         'id': id,
         'nome': nome_funcionario,
